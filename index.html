@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+		    background-color:black;
+			#background: url(img/bg.jpg) 0 0 no-repeat; background-size: 100%;
+			-webkit-perspective: 800;
+		}
+		audio{
+			visibility:hidden;
+		}
+		li{
+			list-style: none;
+		}
+		.box{
+			width:200px;
+			height:200px;
+			position: relative;
+			margin:300px auto;
+			-webkit-transform-style:preserve-3d;
+			-webkit-transform:rotateX(13deg);
+			-webkit-animation:move 5s linear infinite;
+		}
+		.minbox{
+			width:100px;
+			height:100px;
+			position: absolute;
+			left:50px;
+			top:50px;
+			-webkit-transform-style:preserve-3d;
+		}
+		.minbox li{
+			width:100px;
+			height:100px;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		.minbox li:nth-child(1){
+			background: url(img/01.png) no-repeat 0 0;
+			-webkit-transform:translateZ(50px);
+		}
+		.minbox li:nth-child(2){
+			background: url(img/02.png) no-repeat 0 0;
+			-webkit-transform:rotateX(180deg) translateZ(50px);
+		}
+		.minbox li:nth-child(3){
+			background: url(img/03.png) no-repeat 0 0;
+			-webkit-transform:rotateX(-90deg) translateZ(50px);
+		}
+		.minbox li:nth-child(4){
+			background: url(img/04.png) no-repeat 0 0;
+			-webkit-transform:rotateX(90deg) translateZ(50px);
+		}
+		.minbox li:nth-child(5){
+			background: url(img/05.png) no-repeat 0 0;
+			-webkit-transform:rotateY(-90deg) translateZ(50px);
+		}
+		.minbox li:nth-child(6){
+			background: url(img/06.png) no-repeat 0 0;
+			-webkit-transform:rotateY(90deg) translateZ(50px);
+		}
+		.maxbox{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			-webkit-transform-style: preserve-3d;
+		}
+		.maxbox li{
+			width: 200px;
+			height: 200px;
+			background: #fff;
+			border:1px solid #ccc;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0.05;
+			-webkit-transition:all 1s ease;
+		}
+		.maxbox li:nth-child(1){
+			-webkit-transform:translateZ(100px);
+		}
+		.maxbox li:nth-child(2){
+			-webkit-transform:rotateX(180deg) translateZ(100px);
+		}
+		.maxbox li:nth-child(3){
+			-webkit-transform:rotateX(-90deg) translateZ(100px);
+		}
+		.maxbox li:nth-child(4){
+			-webkit-transform:rotateX(90deg) translateZ(100px);
+		}
+		.maxbox li:nth-child(5){
+			-webkit-transform:rotateY(-90deg) translateZ(100px);
+		}
+		.maxbox li:nth-child(6){
+			-webkit-transform:rotateY(90deg) translateZ(100px);
+		}
+		.box:hover ol li:nth-child(1){
+		    -webkit-transform:translateZ(210px);
+			background: url(img/1.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		.box:hover ol li:nth-child(2){
+			-webkit-transform:rotateX(180deg) translateZ(210px);
+			background: url(img/2.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		.box:hover ol li:nth-child(3){
+			-webkit-transform:rotateX(-90deg) translateZ(210px);
+			background: url(img/3.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		.box:hover ol li:nth-child(4){
+			-webkit-transform:rotateX(90deg) translateZ(210px);
+			background: url(img/4.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		.box:hover ol li:nth-child(5){
+			-webkit-transform:rotateY(-90deg) translateZ(210px);
+			background: url(img/5.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		.box:hover ol li:nth-child(6){
+			-webkit-transform:rotateY(90deg) translateZ(210px);
+			background: url(img/6.png) no-repeat 0 0;background-size: 100%;
+			opacity: 0.9;
+		}
+		@keyframes move{
+		    0%{
+				-webkit-transform: rotateX(13deg) rotateY(0deg);
+			}
+			100%{
+				-webkit-transform:rotateX(13deg) rotateY(360deg);
+			}
+		}
+	</style>
+	<script>
+		window.onload=function (){
+			var flag=false;
+			var element=document.body;
+			
+			element.onmousedown=function(){
+				
+				if(flag==false){
+					var myAuto = document.getElementById('myaudio');
+					myAuto.play();
+					console.log("hello");
+				}
+				flag=true;
+			}   
+        }
+		
+	</script>
+</head>
+<body>
+	<audio id="myaudio" src="gaobaiqiqiu.mp3" loop="loop"></audio>
+	<div class="box" id="main">
+		<ul class="minbox">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ol class="maxbox">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+	
+</body>
+</html>
